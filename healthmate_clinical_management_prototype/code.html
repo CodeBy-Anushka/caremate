@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealthMate | Join the Clinical Sanctuary</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#3e4853",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "tertiary": "#7b2600",
+                    "on-secondary-container": "#5b6572",
+                    "on-primary-fixed": "#001848",
+                    "secondary-container": "#d9e3f2",
+                    "on-background": "#191c1e",
+                    "primary-container": "#0052cc",
+                    "surface-variant": "#e0e3e5",
+                    "background": "#f7f9fb",
+                    "outline": "#737685",
+                    "on-surface-variant": "#434654",
+                    "on-secondary-fixed": "#131c27",
+                    "secondary": "#555f6c",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#e6e8ea",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#ffdbcf",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#eceef0",
+                    "inverse-surface": "#2d3133",
+                    "on-tertiary-fixed": "#380d00",
+                    "primary-fixed": "#dae2ff",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-container": "#ffc6b2",
+                    "surface-container-low": "#f2f4f6",
+                    "inverse-primary": "#b2c5ff",
+                    "surface": "#f7f9fb",
+                    "surface-container-highest": "#e0e3e5",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "on-tertiary-fixed-variant": "#812800",
+                    "primary": "#003d9b",
+                    "inverse-on-surface": "#eff1f3",
+                    "secondary-fixed-dim": "#bdc7d6",
+                    "on-surface": "#191c1e",
+                    "surface-tint": "#0c56d0",
+                    "tertiary-container": "#a33500",
+                    "outline-variant": "#c3c6d6",
+                    "surface-dim": "#d8dadc",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#c4d2ff",
+                    "surface-bright": "#f7f9fb",
+                    "secondary-fixed": "#d9e3f2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .blue-glow {
+            box-shadow: 0 12px 32px rgba(0, 61, 155, 0.06);
+        }
+        .clinical-gradient {
+            background: linear-gradient(135deg, #003d9b 0%, #0052cc 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex items-center justify-center p-4 md:p-8">
+<!-- Main Onboarding Container -->
+<main class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 overflow-hidden rounded-[2rem] bg-surface-container-lowest shadow-2xl min-h-[800px]">
+<!-- Branding & Visual Narrative Side (LHS) -->
+<section class="hidden lg:flex lg:col-span-5 relative flex-col justify-between p-12 overflow-hidden clinical-gradient text-on-primary">
+<!-- Decorative Grain/Texture Overlay -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC98bMKddWjsPL1cKDoOWnDEc2RR2ec1j1pGxjhPNAmBRDXqdqQog_ynI5I-nz7eMvdfdVLqALjWwSMgFL_bNyjRKLsojKo3t_l1dFO-WgO8qYC05BAjgiwQllyIaAKFf0rRuqUAeB8A9ZcU8tD0lE2vjUmGFwaKiJbzqj9JkZHKwpMNrY6c1movFUsvv63QsSSCMkYF9SYyTnT-ewbkC6SAht-juXDn_g81iSreGCVM0MXQ5a1UxIK5A7Ibp3lRYBDyqZrGGGuEyA6');"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-16">
+<div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+</div>
+<span class="text-2xl font-extrabold tracking-tighter">HealthMate</span>
+</div>
+<h1 class="text-5xl font-extrabold leading-[1.1] tracking-tight mb-6">
+                    Your Digital <br/>Clinical Sanctuary.
+                </h1>
+<p class="text-primary-fixed-dim text-lg max-w-md font-medium leading-relaxed opacity-90">
+                    Join a community built on trust, precision, and tranquility. Secure your health data with world-class clinical standards.
+                </p>
+</div>
+<!-- Contextual Card / Social Proof -->
+<div class="relative z-10 glass-panel p-6 rounded-2xl border border-white/10 text-on-surface mb-8 max-w-sm blue-glow">
+<div class="flex items-center gap-4 mb-4">
+<img class="w-12 h-12 rounded-full object-cover grayscale-[20%]" data-alt="professional female doctor in a white clinical coat smiling warmly in a bright modern medical office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg91_U2rUcDQwDO32uwzOXBrErKH_P1S_s8JMXltzkueLVD9Vl7lTDr-OklVkcule2U6tFQNeKlWCgLPQRbjg7_7thZjsTktzc7Keaq9alhkcCa1fPziMfmOty2Dl4mLrfdyDYJ12GaCNuGveiq5AHi8Cmz62scPJDAQIVAvm8lh-T3PikEd_XOev0S2iiDqJA9MOlqGw8xciGykCwxoLkI9v92rXE-pdVdJYU-jqVGECuH8DZqwny0JOpByLBaQ1CkF4l-rKyAa2I"/>
+<div>
+<p class="text-sm font-bold text-primary">Dr. Elena Rodriguez</p>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Chief Medical Officer</p>
+</div>
+</div>
+<p class="text-sm italic text-secondary leading-relaxed">
+                    "HealthMate isn't just an app; it's a seamless extension of the clinical experience, designed to put the patient's peace of mind first."
+                </p>
+</div>
+<!-- Background Image Integration -->
+<div class="absolute bottom-0 right-0 w-full h-full -z-0 opacity-20 select-none">
+<img class="w-full h-full object-cover" data-alt="abstract architectural shot of a clean modern hospital interior with soft blue ambient lighting and glass walls" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGJh4FrfmQ1DVYvUE_z3dWU2FOrK1S9os7IzjJ3Ee3eEDU31rkwQoQCJPzyAfqHBIjF7TiNCZfmL7b-3tsL6h-Y-aG-SD_ecmqGZRxJFh5xGrPt7-8OeUXj6vgwY2JhlyCM5bVKkXaz9Bzhz6XwFeuxSnfNW92qHLpTSvbG1rl-Gd5-PMZw4vB53GCLHmKwzF80K8kHXIJ7Me64RyfxFAc5GboUp71re28UpmK4Y6PULpByxgicA42y2M5sSEdhQD66ALXgNqh_i1X"/>
+</div>
+</section>
+<!-- Form Side (RHS) -->
+<section class="lg:col-span-7 bg-surface-container-lowest flex flex-col justify-center p-8 md:p-16 xl:p-24">
+<div class="max-w-md w-full mx-auto">
+<header class="mb-10">
+<div class="lg:hidden flex items-center gap-2 mb-8">
+<span class="material-symbols-outlined text-primary text-3xl">medical_services</span>
+<span class="text-xl font-black text-primary tracking-tighter">HealthMate</span>
+</div>
+<h2 class="text-3xl font-extrabold text-on-surface tracking-tight mb-2">Create Account</h2>
+<p class="text-on-surface-variant font-medium">Enter your details to begin your wellness journey.</p>
+</header>
+<form class="space-y-6">
+<!-- Full Name -->
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface-variant ml-1" for="name">Full Name</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline group-focus-within:text-primary transition-colors text-xl">person</span>
+</div>
+<input class="block w-full pl-11 pr-4 py-4 bg-surface-container-low border-none rounded-2xl text-on-surface placeholder-outline/50 focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all font-medium" id="name" name="name" placeholder="Johnathan Doe" type="text"/>
+</div>
+</div>
+<!-- Email -->
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface-variant ml-1" for="email">Email Address</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline group-focus-within:text-primary transition-colors text-xl">mail</span>
+</div>
+<input class="block w-full pl-11 pr-4 py-4 bg-surface-container-low border-none rounded-2xl text-on-surface placeholder-outline/50 focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all font-medium" id="email" name="email" placeholder="name@clinical.com" type="email"/>
+</div>
+</div>
+<!-- Password -->
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface-variant ml-1" for="password">Security Password</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline group-focus-within:text-primary transition-colors text-xl">lock</span>
+</div>
+<input class="block w-full pl-11 pr-12 py-4 bg-surface-container-low border-none rounded-2xl text-on-surface placeholder-outline/50 focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all font-medium" id="password" name="password" placeholder="••••••••••••" type="password"/>
+<button class="absolute inset-y-0 right-0 pr-4 flex items-center text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+</div>
+</div>
+<!-- Terms Checkbox -->
+<div class="flex items-start gap-3 py-2">
+<input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20" id="terms" type="checkbox"/>
+<label class="text-xs text-on-surface-variant leading-relaxed font-medium" for="terms">
+                            I agree to the <a class="text-primary font-bold hover:underline" href="#">Terms of Service</a> and acknowledge the <a class="text-primary font-bold hover:underline" href="#">Clinical Data Privacy Policy</a>.
+                        </label>
+</div>
+<!-- Primary CTA -->
+<button class="w-full clinical-gradient text-on-primary font-bold py-5 rounded-full blue-glow flex items-center justify-center gap-2 group transition-all active:scale-[0.98]" type="submit">
+<span>Securely Create Account</span>
+<span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</form>
+<footer class="mt-10 text-center">
+<p class="text-on-surface-variant font-medium">
+                        Already have an account? 
+                        <a class="text-primary font-extrabold hover:underline ml-1" href="#">Log in here</a>
+</p>
+</footer>
+<!-- Trust Badges -->
+<div class="mt-12 pt-8 flex items-center justify-between gap-4 border-t border-surface-container-high grayscale opacity-50">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">HIPAA Compliant</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">encrypted</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">AES-256 Encryption</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">health_and_safety</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">GDPR Ready</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Decorative Bottom-Right Graphic -->
+<div class="fixed bottom-0 right-0 p-8 hidden 2xl:block opacity-20 select-none">
+<span class="material-symbols-outlined text-[120px] text-primary" style="font-variation-settings: 'wght' 100;">vital_signs</span>
+</div>
+</body></html>

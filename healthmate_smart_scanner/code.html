@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealthMate Smart Scanner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#3e4853",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "tertiary": "#7b2600",
+                    "on-secondary-container": "#5b6572",
+                    "on-primary-fixed": "#001848",
+                    "secondary-container": "#d9e3f2",
+                    "on-background": "#191c1e",
+                    "primary-container": "#0052cc",
+                    "surface-variant": "#e0e3e5",
+                    "background": "#f7f9fb",
+                    "outline": "#737685",
+                    "on-surface-variant": "#434654",
+                    "on-secondary-fixed": "#131c27",
+                    "secondary": "#555f6c",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#e6e8ea",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#ffdbcf",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#eceef0",
+                    "inverse-surface": "#2d3133",
+                    "on-tertiary-fixed": "#380d00",
+                    "primary-fixed": "#dae2ff",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-container": "#ffc6b2",
+                    "surface-container-low": "#f2f4f6",
+                    "inverse-primary": "#b2c5ff",
+                    "surface": "#f7f9fb",
+                    "surface-container-highest": "#e0e3e5",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "on-tertiary-fixed-variant": "#812800",
+                    "primary": "#003d9b",
+                    "inverse-on-surface": "#eff1f3",
+                    "secondary-fixed-dim": "#bdc7d6",
+                    "on-surface": "#191c1e",
+                    "surface-tint": "#0c56d0",
+                    "tertiary-container": "#a33500",
+                    "outline-variant": "#c3c6d6",
+                    "surface-dim": "#d8dadc",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#c4d2ff",
+                    "surface-bright": "#f7f9fb",
+                    "secondary-fixed": "#d9e3f2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scanner-frame {
+            box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body antialiased overflow-hidden">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm">
+<div class="flex justify-between items-center w-full px-8 h-16 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-blue-900 dark:text-blue-200" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
+<span class="text-2xl font-bold tracking-tighter text-blue-900 dark:text-blue-200">HealthMate</span>
+</div>
+<nav class="hidden md:flex items-center gap-8 font-manrope text-sm font-medium tracking-tight">
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Home</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Medicines</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Health</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Appointments</a>
+<a class="text-blue-700 dark:text-blue-300 border-b-2 border-blue-700 dark:border-blue-300 pb-1" href="#">AI Assistant</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-all scale-95 active:scale-90">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-all scale-95 active:scale-90">
+<span class="material-symbols-outlined text-on-surface-variant">settings</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex h-screen pt-16 overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="hidden md:flex flex-col h-full w-64 p-4 gap-2 bg-slate-50 border-r-0 font-manrope text-sm font-semibold">
+<div class="flex flex-col gap-1 mb-6 px-2">
+<span class="text-xl font-black text-blue-900">Clinical Sanctuary</span>
+<span class="text-xs font-medium text-slate-500">Intelligent Diagnostics</span>
+</div>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">home</span> Home
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">pill</span> Medicines
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">monitor_heart</span> Health
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">calendar_today</span> Appointments
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white text-blue-800 rounded-xl shadow-sm ring-1 ring-black/5 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span> AI Assistant
+            </a>
+<div class="mt-auto pt-4 flex flex-col gap-2">
+<button class="w-full py-4 bg-error text-on-error rounded-full font-bold shadow-lg shadow-error/20 flex items-center justify-center gap-2 mb-4">
+<span class="material-symbols-outlined text-sm">emergency</span> Emergency Call
+                </button>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">help</span> Support
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">logout</span> Logout
+                </a>
+</div>
+</aside>
+<!-- Main Content Area: Camera & OCR UI -->
+<section class="flex-1 relative bg-surface-container-low flex overflow-hidden">
+<!-- Left Side: Viewfinder -->
+<div class="flex-1 relative overflow-hidden bg-black flex flex-col items-center justify-center">
+<!-- Camera Feed Mock -->
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-80" data-alt="Close up view of a digital blood pressure monitor screen showing numeric readings on a table in soft medical lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYFPFa2ch2uvLJlwUgXxjb26zyTysSw4WaX2PSwy4dw8ubJV5DMyKjOkwfWOsobbd-8igDVTqu2Jqz8FWaIDB0a2GFl3oN1yimjkfuKJBxMCViLPrw7FywhAGDMFt7MOZ4Hkmq4USVHqLuCDMMyyIC_o-DMb0fHSvdqFKC1hst_m5A9D_fvagoS3yBaLnpZazPWLMXABMlqzSUerBWcEmseKurYOvRfvmQyTxblQVPmCqMRXZACymlRRKGTUm9hiAill0Ca1ICpY5-"/>
+</div>
+<!-- Scanner Overlay -->
+<div class="relative z-10 w-full h-full flex flex-col items-center justify-center">
+<div class="scanner-frame w-[320px] h-[320px] md:w-[480px] md:h-[320px] rounded-3xl border-2 border-white/40 flex items-center justify-center relative">
+<!-- Corners -->
+<div class="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-primary rounded-tl-3xl"></div>
+<div class="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-primary rounded-tr-3xl"></div>
+<div class="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-primary rounded-bl-3xl"></div>
+<div class="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-primary rounded-br-3xl"></div>
+<!-- Scanning Line Animation Simulation -->
+<div class="absolute inset-x-0 top-1/2 h-[2px] bg-primary/40 shadow-[0_0_15px_rgba(0,61,155,0.8)]"></div>
+<!-- Text Hints -->
+<div class="absolute top-[-3rem] left-0 right-0 text-center">
+<span class="bg-black/60 backdrop-blur-md text-white px-4 py-1.5 rounded-full text-sm font-medium tracking-wide">Align screen within the frame</span>
+</div>
+</div>
+<!-- Action Controls -->
+<div class="absolute bottom-10 flex flex-col items-center gap-6">
+<button class="group flex flex-col items-center gap-2">
+<div class="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center p-1 border-2 border-white/50 transition-all active:scale-95">
+<div class="w-full h-full bg-white rounded-full shadow-lg flex items-center justify-center group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-white text-3xl">camera</span>
+</div>
+</div>
+<span class="text-white text-sm font-bold uppercase tracking-widest drop-shadow-md">Capture &amp; Extract</span>
+</button>
+</div>
+</div>
+<!-- Floating Info Chip -->
+<div class="absolute top-8 left-8 z-20 flex gap-2">
+<div class="flex items-center gap-2 bg-black/60 backdrop-blur-md px-4 py-2 rounded-full">
+<div class="w-2 h-2 rounded-full bg-error animate-pulse"></div>
+<span class="text-white text-xs font-bold tracking-tight">AUTO-RECOGNITION ACTIVE</span>
+</div>
+<div class="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+<span class="material-symbols-outlined text-white text-sm">lightbulb</span>
+<span class="text-white text-xs font-medium">Scanning BP Monitor...</span>
+</div>
+</div>
+</div>
+<!-- Right Side: Data Panel (OCR Result) -->
+<div class="w-full md:w-[400px] bg-surface flex flex-col shadow-[-10px_0_30px_rgba(0,0,0,0.05)] z-30">
+<div class="p-8 flex flex-col h-full">
+<div class="mb-8">
+<h2 class="font-headline text-3xl font-bold text-primary tracking-tight leading-tight">Extraction Preview</h2>
+<p class="text-on-surface-variant mt-2 text-sm">Review the captured data from your device below.</p>
+</div>
+<div class="flex-1 space-y-6 overflow-y-auto pr-2">
+<!-- Vitals Card: Blood Pressure -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm ring-1 ring-black/5">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">monitor_heart</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface-variant/60 uppercase tracking-widest">Type</p>
+<p class="text-sm font-bold text-on-surface">Blood Pressure</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary text-sm">verified</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 bg-surface-container-low rounded-xl">
+<p class="text-[0.6875rem] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Systolic</p>
+<div class="flex items-baseline gap-1">
+<span class="text-2xl font-black text-primary">128</span>
+<span class="text-xs font-medium text-on-surface-variant">mmHg</span>
+</div>
+</div>
+<div class="p-4 bg-surface-container-low rounded-xl">
+<p class="text-[0.6875rem] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Diastolic</p>
+<div class="flex items-baseline gap-1">
+<span class="text-2xl font-black text-primary">82</span>
+<span class="text-xs font-medium text-on-surface-variant">mmHg</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Vitals Card: Heart Rate -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm ring-1 ring-black/5">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-xl bg-tertiary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary">favorite</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface-variant/60 uppercase tracking-widest">Detected</p>
+<p class="text-sm font-bold text-on-surface">Pulse Rate</p>
+</div>
+</div>
+<div class="p-4 bg-surface-container-low rounded-xl flex items-baseline justify-between">
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-black text-tertiary">74</span>
+<span class="text-sm font-medium text-on-surface-variant">BPM</span>
+</div>
+<span class="px-2 py-1 bg-tertiary/5 text-tertiary text-[10px] font-bold rounded-md">NORMAL</span>
+</div>
+</div>
+<!-- Data Trust Indicator -->
+<div class="flex items-center gap-3 p-4 bg-secondary-container/30 rounded-xl">
+<span class="material-symbols-outlined text-secondary text-xl">psychology</span>
+<div class="flex-1">
+<p class="text-xs font-bold text-secondary">AI Confidence Score: 98.4%</p>
+<div class="w-full h-1 bg-white/50 rounded-full mt-1 overflow-hidden">
+<div class="w-[98%] h-full bg-primary rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Controls -->
+<div class="mt-8 pt-6 border-t border-outline-variant/20 flex flex-col gap-3">
+<button class="w-full py-4 bg-primary text-on-primary rounded-full font-bold text-base shadow-lg shadow-primary/20 flex items-center justify-center gap-2 hover:bg-primary-container transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">task_alt</span> Autofill Health Log
+                        </button>
+<button class="w-full py-4 bg-surface-container-high text-on-surface font-semibold rounded-full text-base flex items-center justify-center gap-2 hover:bg-surface-variant transition-all">
+                            Retake Photo
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Navigation Mobile (Standard Fixed Bottom) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-slate-50/90 backdrop-blur-lg flex justify-around items-center py-3 px-4 z-50 border-t border-slate-200">
+<div class="flex flex-col items-center text-slate-400">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center text-slate-400">
+<span class="material-symbols-outlined">pill</span>
+<span class="text-[10px] font-medium mt-1">Meds</span>
+</div>
+<div class="flex flex-col items-center text-blue-700 bg-blue-50 px-4 py-1 rounded-2xl">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="text-[10px] font-bold mt-1">Scan</span>
+</div>
+<div class="flex flex-col items-center text-slate-400">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-[10px] font-medium mt-1">Dates</span>
+</div>
+<div class="flex flex-col items-center text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium mt-1">Profile</span>
+</div>
+</nav>
+</body></html>

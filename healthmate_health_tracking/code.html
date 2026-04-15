@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#3e4853",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "tertiary": "#7b2600",
+                    "on-secondary-container": "#5b6572",
+                    "on-primary-fixed": "#001848",
+                    "secondary-container": "#d9e3f2",
+                    "on-background": "#191c1e",
+                    "primary-container": "#0052cc",
+                    "surface-variant": "#e0e3e5",
+                    "background": "#f7f9fb",
+                    "outline": "#737685",
+                    "on-surface-variant": "#434654",
+                    "on-secondary-fixed": "#131c27",
+                    "secondary": "#555f6c",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#e6e8ea",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#ffdbcf",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#eceef0",
+                    "inverse-surface": "#2d3133",
+                    "on-tertiary-fixed": "#380d00",
+                    "primary-fixed": "#dae2ff",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-container": "#ffc6b2",
+                    "surface-container-low": "#f2f4f6",
+                    "inverse-primary": "#b2c5ff",
+                    "surface": "#f7f9fb",
+                    "surface-container-highest": "#e0e3e5",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "on-tertiary-fixed-variant": "#812800",
+                    "primary": "#003d9b",
+                    "inverse-on-surface": "#eff1f3",
+                    "secondary-fixed-dim": "#bdc7d6",
+                    "on-surface": "#191c1e",
+                    "surface-tint": "#0c56d0",
+                    "tertiary-container": "#a33500",
+                    "outline-variant": "#c3c6d6",
+                    "surface-dim": "#d8dadc",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#c4d2ff",
+                    "surface-bright": "#f7f9fb",
+                    "secondary-fixed": "#d9e3f2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; }
+        .font-manrope { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            backdrop-filter: blur(20px);
+            background-color: rgba(247, 249, 251, 0.8);
+        }
+    </style>
+</head>
+<body class="text-on-surface">
+<div class="flex min-h-screen">
+<!-- SideNavBar Component -->
+<aside class="hidden md:flex flex-col h-screen w-64 p-4 gap-2 bg-slate-50 border-r-0 sticky top-0">
+<div class="mb-8 px-4 py-2">
+<h1 class="text-xl font-black text-blue-900 font-manrope">HealthMate</h1>
+<p class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Clinical Sanctuary</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl transition-all duration-200 ease-in-out font-manrope font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span> Home
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl transition-all duration-200 ease-in-out font-manrope font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="pill">pill</span> Medicines
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white text-blue-800 rounded-xl shadow-sm transition-all duration-200 ease-in-out font-manrope font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="monitor_heart">monitor_heart</span> Health
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl transition-all duration-200 ease-in-out font-manrope font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span> Appointments
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl transition-all duration-200 ease-in-out font-manrope font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span> AI Assistant
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl transition-all duration-200 ease-in-out font-manrope font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span> Profile
+                </a>
+</nav>
+<div class="mt-auto pt-4 border-t border-slate-100">
+<button class="w-full bg-primary text-on-primary py-3 rounded-full font-manrope font-bold text-sm mb-4 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="call">call</span> Emergency Call
+                </button>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl transition-all duration-200 ease-in-out font-manrope font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span> Support
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl transition-all duration-200 ease-in-out font-manrope font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span> Logout
+                </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 min-w-0 bg-surface">
+<!-- TopNavBar (Embedded in Canvas) -->
+<header class="fixed top-0 right-0 left-0 md:left-64 z-50 glass-header">
+<div class="flex justify-between items-center w-full px-8 h-16 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-8">
+<h2 class="text-lg font-bold tracking-tight text-primary font-manrope">Health Tracking</h2>
+<div class="hidden lg:flex items-center gap-6">
+<a class="font-manrope text-sm font-medium tracking-tight text-blue-700 border-b-2 border-blue-700 pb-1" href="#">Overview</a>
+<a class="font-manrope text-sm font-medium tracking-tight text-slate-500 hover:text-blue-600 transition-colors" href="#">Trends</a>
+<a class="font-manrope text-sm font-medium tracking-tight text-slate-500 hover:text-blue-600 transition-colors" href="#">Reports</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-100 rounded-lg transition-all text-slate-500">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-100 rounded-lg transition-all text-slate-500">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-secondary-container overflow-hidden">
+<img alt="User profile avatar" data-alt="professional headshot of a woman smiling with soft natural lighting and a neutral blurred background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ3_T625MUHhZvj60_zrTiLXGWomqsYduZIwb7S4_tQu_Agf8ptweB4U8D5pvuipLF2MHPnAFqZ9XdGBG_BqHD3wMmOlHRRmuU1oheH29skTTrfyCydLzSYi7o_MzQu2Nahbqt3PLESWJlebHdTUMbxZ2tiAQAwNGz2HyhNB7Bx_8NHOvaqlWGesXKQUPPVieqMRtb5BpZNn20jvCw3WjBV4s06qRky_nqcOJhrtS2xZOB6qrxlQ2DRjt2sZztiNLgz_FZpbRJ4dJm"/>
+</div>
+</div>
+</div>
+</header>
+<div class="pt-24 px-8 pb-12 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- LEFT COLUMN: Input & Vitals -->
+<div class="lg:col-span-4 space-y-8">
+<!-- Quick Input Card -->
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_12px_32px_rgba(0,61,155,0.06)]">
+<h3 class="font-manrope text-lg font-bold text-primary mb-6">Log Daily Vitals</h3>
+<div class="space-y-5">
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Blood Pressure (mmHg)</label>
+<div class="flex gap-2">
+<input class="w-full bg-surface-container-low border-0 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary text-sm" placeholder="Sys" type="text"/>
+<span class="flex items-center text-slate-300">/</span>
+<input class="w-full bg-surface-container-low border-0 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary text-sm" placeholder="Dia" type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Blood Sugar (mg/dL)</label>
+<input class="w-full bg-surface-container-low border-0 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary text-sm" placeholder="Enter value" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Heart Rate (BPM)</label>
+<input class="w-full bg-surface-container-low border-0 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary text-sm" placeholder="Enter value" type="text"/>
+</div>
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-4 rounded-full font-manrope font-extrabold text-sm shadow-md hover:opacity-90 transition-opacity">
+                                    Record Vitals
+                                </button>
+</div>
+</section>
+<!-- Highlight Cards -->
+<div class="grid grid-cols-1 gap-4">
+<div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-4">
+<div class="w-12 h-12 bg-tertiary-fixed rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant font-medium">Avg Heart Rate</p>
+<p class="text-xl font-manrope font-bold text-on-surface">72 <span class="text-xs font-normal text-slate-400">bpm</span></p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-fixed rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="water_drop" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant font-medium">Glucose Stability</p>
+<p class="text-xl font-manrope font-bold text-on-surface">94% <span class="text-xs font-normal text-slate-400">Normal Range</span></p>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Trends & History -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Chart Visualization Area -->
+<section class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_12px_32px_rgba(0,61,155,0.06)] overflow-hidden">
+<div class="flex justify-between items-center mb-10">
+<div>
+<h3 class="font-manrope text-xl font-bold text-on-surface">Health Analytics</h3>
+<p class="text-sm text-on-surface-variant">Last 7 days performance metrics</p>
+</div>
+<div class="flex gap-2">
+<button class="px-4 py-1.5 bg-surface-container-low rounded-full text-xs font-bold text-primary">Daily</button>
+<button class="px-4 py-1.5 hover:bg-slate-50 rounded-full text-xs font-bold text-slate-400">Weekly</button>
+</div>
+</div>
+<!-- Mock Line Chart Visualization -->
+<div class="relative h-64 w-full">
+<div class="absolute inset-0 flex flex-col justify-between">
+<div class="border-b border-slate-100 w-full h-px"></div>
+<div class="border-b border-slate-100 w-full h-px"></div>
+<div class="border-b border-slate-100 w-full h-px"></div>
+<div class="border-b border-slate-100 w-full h-px"></div>
+<div class="border-b border-slate-100 w-full h-px"></div>
+</div>
+<svg class="absolute inset-0 h-64 w-full" preserveaspectratio="none">
+<!-- Area Gradient -->
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#003d9b" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#003d9b" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- Path -->
+<path d="M0,180 Q100,140 200,160 T400,100 T600,120 T800,40 L800,256 L0,256 Z" fill="url(#chartGradient)"></path>
+<path d="M0,180 Q100,140 200,160 T400,100 T600,120 T800,40" fill="none" stroke="#003d9b" stroke-linecap="round" stroke-width="3"></path>
+<!-- Data Points -->
+<circle cx="200" cy="160" fill="#003d9b" r="4"></circle>
+<circle cx="400" cy="100" fill="#003d9b" r="4"></circle>
+<circle cx="800" cy="40" fill="#003d9b" r="6" stroke="white" stroke-width="2"></circle>
+</svg>
+<!-- Floating Tooltip -->
+<div class="absolute top-4 right-10 bg-primary text-on-primary px-3 py-1.5 rounded-lg text-xs font-bold shadow-lg">
+                                    Today: 118/76 mmHg
+                                </div>
+</div>
+<div class="flex justify-between mt-6 text-[10px] font-bold text-slate-400 uppercase tracking-widest px-2">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+</div>
+</section>
+<!-- History List -->
+<section class="space-y-6">
+<div class="flex justify-between items-end">
+<h3 class="font-manrope text-xl font-bold text-on-surface">Daily Logs</h3>
+<button class="text-sm font-bold text-primary hover:underline transition-all">View All History</button>
+</div>
+<div class="space-y-3">
+<!-- Log Item -->
+<div class="bg-surface-container-low/50 hover:bg-surface-container-low transition-colors rounded-xl p-5 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<div class="flex flex-col">
+<span class="text-xs font-bold text-slate-400 uppercase">Oct 24</span>
+<span class="text-sm font-bold text-on-surface">Today, 08:30 AM</span>
+</div>
+<div class="h-8 w-px bg-slate-200"></div>
+<div class="flex gap-8">
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase">BP</p>
+<p class="text-sm font-semibold text-on-surface">118/76</p>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase">Sugar</p>
+<p class="text-sm font-semibold text-on-surface">98 <span class="text-[10px]">mg/dL</span></p>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase">Heart</p>
+<p class="text-sm font-semibold text-on-surface">71 <span class="text-[10px]">bpm</span></p>
+</div>
+</div>
+</div>
+<button class="p-2 hover:bg-white rounded-lg transition-all text-slate-400">
+<span class="material-symbols-outlined text-lg" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<!-- Log Item -->
+<div class="bg-surface-container-low/50 hover:bg-surface-container-low transition-colors rounded-xl p-5 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<div class="flex flex-col">
+<span class="text-xs font-bold text-slate-400 uppercase">Oct 23</span>
+<span class="text-sm font-bold text-on-surface">Yesterday, 09:15 AM</span>
+</div>
+<div class="h-8 w-px bg-slate-200"></div>
+<div class="flex gap-8">
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase">BP</p>
+<p class="text-sm font-semibold text-on-surface">122/80</p>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase">Sugar</p>
+<p class="text-sm font-semibold text-on-surface">104 <span class="text-[10px]">mg/dL</span></p>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase">Heart</p>
+<p class="text-sm font-semibold text-on-surface">74 <span class="text-[10px]">bpm</span></p>
+</div>
+</div>
+</div>
+<button class="p-2 hover:bg-white rounded-lg transition-all text-slate-400">
+<span class="material-symbols-outlined text-lg" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<!-- Log Item -->
+<div class="bg-surface-container-low/50 hover:bg-surface-container-low transition-colors rounded-xl p-5 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<div class="flex flex-col">
+<span class="text-xs font-bold text-slate-400 uppercase">Oct 22</span>
+<span class="text-sm font-bold text-on-surface">Tuesday, 08:45 AM</span>
+</div>
+<div class="h-8 w-px bg-slate-200"></div>
+<div class="flex gap-8">
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase">BP</p>
+<p class="text-sm font-semibold text-tertiary">134/88</p>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase">Sugar</p>
+<p class="text-sm font-semibold text-on-surface">112 <span class="text-[10px]">mg/dL</span></p>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase">Heart</p>
+<p class="text-sm font-semibold text-on-surface">78 <span class="text-[10px]">bpm</span></p>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant text-[10px] font-bold px-2 py-0.5 rounded uppercase">Slightly High</span>
+<button class="p-2 hover:bg-white rounded-lg transition-all text-slate-400">
+<span class="material-symbols-outlined text-lg" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Mobile Navigation (BottomNavBar) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-bright/90 backdrop-blur-xl border-t-0 py-3 px-6 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" data-icon="monitor_heart" style="font-variation-settings: 'FILL' 1;">monitor_heart</span>
+<span class="text-[10px] font-bold">Health</span>
+</button>
+<div class="-mt-12 bg-primary p-4 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-on-primary" data-icon="add">add</span>
+</div>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined" data-icon="pill">pill</span>
+<span class="text-[10px] font-bold">Meds</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</button>
+</nav>
+</body></html>

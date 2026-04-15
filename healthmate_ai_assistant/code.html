@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealthMate AI Assistant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#3e4853",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "tertiary": "#7b2600",
+                    "on-secondary-container": "#5b6572",
+                    "on-primary-fixed": "#001848",
+                    "secondary-container": "#d9e3f2",
+                    "on-background": "#191c1e",
+                    "primary-container": "#0052cc",
+                    "surface-variant": "#e0e3e5",
+                    "background": "#f7f9fb",
+                    "outline": "#737685",
+                    "on-surface-variant": "#434654",
+                    "on-secondary-fixed": "#131c27",
+                    "secondary": "#555f6c",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#e6e8ea",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#ffdbcf",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#eceef0",
+                    "inverse-surface": "#2d3133",
+                    "on-tertiary-fixed": "#380d00",
+                    "primary-fixed": "#dae2ff",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-container": "#ffc6b2",
+                    "surface-container-low": "#f2f4f6",
+                    "inverse-primary": "#b2c5ff",
+                    "surface": "#f7f9fb",
+                    "surface-container-highest": "#e0e3e5",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "on-tertiary-fixed-variant": "#812800",
+                    "primary": "#003d9b",
+                    "inverse-on-surface": "#eff1f3",
+                    "secondary-fixed-dim": "#bdc7d6",
+                    "on-surface": "#191c1e",
+                    "surface-tint": "#0c56d0",
+                    "tertiary-container": "#a33500",
+                    "outline-variant": "#c3c6d6",
+                    "surface-dim": "#d8dadc",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#c4d2ff",
+                    "surface-bright": "#f7f9fb",
+                    "secondary-fixed": "#d9e3f2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-manrope { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .chat-container::-webkit-scrollbar { width: 4px; }
+        .chat-container::-webkit-scrollbar-track { background: transparent; }
+        .chat-container::-webkit-scrollbar-thumb { background: #d9e3f2; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex h-screen overflow-hidden">
+<!-- SideNavBar (Authority: JSON) -->
+<aside class="hidden md:flex flex-col h-full p-4 gap-2 bg-slate-50 border-r border-outline-variant/15 w-64 shrink-0">
+<div class="flex items-center gap-3 px-2 mb-8">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="clinical_notes">clinical_notes</span>
+</div>
+<div>
+<h1 class="text-xl font-black text-blue-900 font-manrope">HealthMate</h1>
+<p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Clinical Sanctuary</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl font-manrope text-sm font-semibold transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span> Home
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl font-manrope text-sm font-semibold transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="pill">pill</span> Medicines
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl font-manrope text-sm font-semibold transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="monitor_heart">monitor_heart</span> Health
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl font-manrope text-sm font-semibold transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span> Appointments
+            </a>
+<!-- Active State: AI Assistant -->
+<a class="flex items-center gap-3 px-4 py-3 bg-white text-blue-800 rounded-xl shadow-sm font-manrope text-sm font-semibold transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy" style="font-variation-settings: 'FILL' 1;">smart_toy</span> AI Assistant
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl font-manrope text-sm font-semibold transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span> Profile
+            </a>
+</nav>
+<div class="mt-auto flex flex-col gap-2 pt-4 border-t border-outline-variant/15">
+<button class="w-full py-3 px-4 bg-tertiary text-white rounded-full font-manrope text-sm font-bold flex items-center justify-center gap-2 mb-4 shadow-lg shadow-tertiary/20">
+<span class="material-symbols-outlined text-sm" data-icon="call">call</span> Emergency Call
+            </button>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl font-manrope text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span> Support
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 rounded-xl font-manrope text-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span> Logout
+            </a>
+</div>
+</aside>
+<!-- Main Chat Canvas -->
+<main class="flex-1 flex flex-col relative bg-surface">
+<!-- Top Navigation (Authority: JSON) -->
+<header class="fixed top-0 right-0 left-0 md:left-64 h-16 z-50 bg-slate-50/80 backdrop-blur-xl flex justify-between items-center px-8 border-b border-outline-variant/5">
+<div class="flex items-center gap-4">
+<h2 class="text-lg font-manrope font-bold text-blue-900">AI Health Sanctuary</h2>
+<span class="flex items-center gap-1.5 px-2.5 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded-full uppercase tracking-wider">
+<span class="w-1.5 h-1.5 bg-primary rounded-full animate-pulse"></span> Systems Active
+                </span>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-slate-100 px-4 py-2 rounded-full gap-2">
+<span class="material-symbols-outlined text-slate-400 text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 text-on-surface" placeholder="Search chat history..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 transition-all text-slate-500">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 transition-all text-slate-500">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<img alt="User profile avatar" class="w-8 h-8 rounded-full border border-outline-variant/20" data-alt="portrait of a professional man in his 30s with friendly expression, soft natural office lighting, sharp focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5tnWLZdn8WJgc49T5CtF2AR6tJQPk2kVOmwLxun0Pc58Udy33ZvJf0vy1QvDrdemBpLWgNOsbq0YBEuxGov0eY2WS6MGFG7y4EI6K21_clzQCaFt23Fkei54YD5INRw-Zeo0rRNFg804G9gqjGzhI2_w5TGxqw3KBpq55Sj-h30JQiKKaoGkDV05_j61MLbE5Ux3zpD3luN0_OLYwuI-aXV0Nk8Mc0StuK3vYXD_a8bWHiEn-4oI0xeUaoCRsgI8VovjYwY5ftNzu"/>
+</div>
+</div>
+</header>
+<!-- Chat History Area -->
+<div class="flex-1 overflow-y-auto chat-container pt-24 pb-12 px-6 lg:px-12 max-w-5xl mx-auto w-full">
+<!-- Welcome Info Section (Asymmetric Editorial Style) -->
+<div class="mb-12 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+<div class="md:col-span-7">
+<h3 class="text-4xl lg:text-5xl font-manrope font-extrabold text-blue-950 tracking-tight leading-tight">
+                        How can I assist your <span class="text-primary">well-being</span> today?
+                    </h3>
+<p class="mt-4 text-on-surface-variant max-w-md leading-relaxed">
+                        Access real-time clinical insights, analyze your recent vitals, or schedule a consultation with your care team.
+                    </p>
+</div>
+<div class="md:col-span-5 flex justify-end">
+<div class="bg-primary-container p-6 rounded-3xl text-on-primary-container relative overflow-hidden">
+<div class="relative z-10">
+<p class="text-xs font-bold uppercase tracking-widest opacity-80 mb-2">Connected Device</p>
+<p class="text-xl font-manrope font-bold">SmartWatch Series 9</p>
+<div class="mt-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="sync">sync</span>
+<span class="text-xs">Last synced 2 mins ago</span>
+</div>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-8xl opacity-10" data-icon="watch">watch</span>
+</div>
+</div>
+</div>
+<!-- Message Group: AI Initial -->
+<div class="flex flex-col gap-6 mb-8">
+<div class="flex gap-4 items-start max-w-[85%]">
+<div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+</div>
+<div class="bg-secondary-container text-on-secondary-container p-5 rounded-2xl rounded-tl-none shadow-sm">
+<p class="text-sm leading-relaxed font-medium">Hello, Alex. I've finished processing your health data from the last 7 days. I noticed a subtle upward trend in your resting heart rate and a decrease in your sleep quality. Would you like to analyze these trends together?</p>
+<p class="text-[10px] mt-2 opacity-60 font-bold uppercase tracking-tighter">AI Assistant • 09:41 AM</p>
+</div>
+</div>
+<!-- Suggested Queries (Bento-style capsules) -->
+<div class="flex flex-wrap gap-3 ml-14">
+<button class="px-4 py-2 bg-white border border-outline-variant/10 hover:bg-primary/5 hover:border-primary/30 transition-all rounded-full text-xs font-semibold text-primary flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="analytics">analytics</span> Analyze my health trends
+                    </button>
+<button class="px-4 py-2 bg-white border border-outline-variant/10 hover:bg-primary/5 hover:border-primary/30 transition-all rounded-full text-xs font-semibold text-primary flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="sleep">sleep</span> Review sleep metrics
+                    </button>
+<button class="px-4 py-2 bg-white border border-outline-variant/10 hover:bg-primary/5 hover:border-primary/30 transition-all rounded-full text-xs font-semibold text-primary flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="medication">medication</span> Check dosage schedule
+                    </button>
+</div>
+<!-- Message Group: User -->
+<div class="flex gap-4 items-start justify-end">
+<div class="bg-gradient-to-br from-primary to-primary-container text-on-primary p-5 rounded-2xl rounded-tr-none shadow-lg shadow-primary/10 max-w-[85%]">
+<p class="text-sm leading-relaxed">Yes, let's look at the heart rate trends. Does it correlate with my caffeine intake log?</p>
+<p class="text-[10px] mt-2 opacity-60 font-bold uppercase tracking-tighter text-right">You • 09:42 AM</p>
+</div>
+<img alt="User profile avatar" class="w-10 h-10 rounded-xl border-2 border-white shadow-sm shrink-0" data-alt="portrait of a man in his 30s, natural daylight, soft focus background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZW_NiaHioXeSwh3ft2LCR_me-rYZbpwnYkQBlXyRd07hkTC4vU2hOAcO5etsMwYjaJtW-OQfDSwkAH9affFKJmApDDYsbv3XssStlThRZoEklW4WE-gGwESoO0wk6B9kKledj57_nwA4fl0Ri-QaJPZLblyFGiJkYPlI2aMPAGbANRZ4qnYG9PZ0zmCLrRLVh7GPvuWJQ_gg8Xp-ArWTAw3yingImWMOrUhxT5wu-19QyrEEsxRuuYd_RIfPGjpIFgO3xHi2Uz-8A"/>
+</div>
+<!-- Message Group: AI Analysis + Visualization -->
+<div class="flex gap-4 items-start max-w-[85%]">
+<div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+</div>
+<div class="bg-secondary-container text-on-secondary-container p-5 rounded-2xl rounded-tl-none shadow-sm flex flex-col gap-4">
+<p class="text-sm leading-relaxed font-medium">There is a clear correlation. On Tuesday and Thursday, your caffeine intake was 40% higher than your average, followed by a peak in resting heart rate (+8 bpm) approximately 4 hours later.</p>
+<!-- Embedded Visualization (Clinical Serenity Style) -->
+<div class="bg-white/50 backdrop-blur-sm p-4 rounded-xl border border-white/60">
+<div class="flex justify-between items-center mb-4">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Heart Rate vs. Caffeine</span>
+<span class="text-[10px] text-tertiary font-bold px-2 py-0.5 bg-tertiary-fixed rounded">Strong Correlation</span>
+</div>
+<div class="h-24 w-full flex items-end gap-1 px-2">
+<div class="w-full bg-primary/20 rounded-t-sm h-[30%] relative group">
+<div class="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 hidden group-hover:block bg-primary text-white text-[8px] px-1 rounded">M</div>
+</div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[45%]"></div>
+<div class="w-full bg-primary rounded-t-sm h-[85%] relative">
+<div class="absolute -top-1 -right-1 w-2 h-2 bg-tertiary rounded-full animate-ping"></div>
+</div>
+<div class="w-full bg-primary/30 rounded-t-sm h-[50%]"></div>
+<div class="w-full bg-primary/60 rounded-t-sm h-[95%]"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[40%]"></div>
+<div class="w-full bg-primary/20 rounded-t-sm h-[35%]"></div>
+</div>
+<div class="mt-2 flex justify-between text-[8px] font-bold text-slate-400">
+<span>MON</span>
+<span>TUE</span>
+<span class="text-primary">WED</span>
+<span>THU</span>
+<span class="text-primary">FRI</span>
+<span>SAT</span>
+<span>SUN</span>
+</div>
+</div>
+<p class="text-sm leading-relaxed font-medium italic opacity-80">I recommend reducing your afternoon caffeine intake to help normalize your heart rate and improve sleep latency.</p>
+<p class="text-[10px] mt-2 opacity-60 font-bold uppercase tracking-tighter">AI Assistant • 09:43 AM</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Chat Input Bar -->
+<div class="sticky bottom-0 w-full p-6 lg:p-8 bg-gradient-to-t from-surface via-surface to-transparent">
+<div class="max-w-4xl mx-auto">
+<div class="bg-white rounded-3xl shadow-2xl shadow-primary/5 p-2 flex items-center gap-3 border border-outline-variant/10">
+<button class="w-12 h-12 flex items-center justify-center rounded-2xl hover:bg-slate-100 transition-all text-slate-400">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</button>
+<input class="flex-1 border-none focus:ring-0 text-sm py-4 font-medium text-on-surface" placeholder="Type your health inquiry here..." type="text"/>
+<div class="flex items-center gap-2 px-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-slate-400 hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</button>
+<button class="bg-primary text-on-primary w-12 h-12 flex items-center justify-center rounded-2xl shadow-lg shadow-primary/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="send" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+<!-- Disclaimer Anchor -->
+<div class="mt-4 flex flex-col items-center gap-2">
+<div class="flex items-center gap-1.5 py-1.5 px-4 bg-slate-200/40 rounded-full border border-slate-200/60">
+<span class="material-symbols-outlined text-slate-500 text-[14px]" data-icon="info">info</span>
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">This is not medical advice</p>
+</div>
+<p class="text-[9px] text-on-surface-variant text-center opacity-60 max-w-lg leading-tight">
+                        HealthMate AI is a supportive clinical tool. For diagnosis, treatment, or emergency medical concerns, please consult a licensed healthcare professional immediately.
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only Rule) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-white flex items-center justify-around z-50 border-t border-outline-variant/5">
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[8px] font-bold uppercase">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined" data-icon="pill">pill</span>
+<span class="text-[8px] font-bold uppercase">Meds</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="text-[8px] font-bold uppercase">AI</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="text-[8px] font-bold uppercase">Appts</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[8px] font-bold uppercase">Profile</span>
+</a>
+</nav>
+</body></html>
